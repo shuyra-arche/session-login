@@ -1,0 +1,131 @@
+{
+  "repository": "https://github.com/anreonyr/sqware.git",
+  "commit": "94e114614bec53424ac55e640fc80cf19a3e7107",
+  "files": [
+    {
+      "source": "programs/src/user/login/main.rs",
+      "sha256": "2c8556653b7f8609a1f194d94ef4198054ed9b8bb58d01f03d1ca79c8befbe35",
+      "authors": [
+        "anreonyr <88045926+anreonyr@users.noreply.github.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/src/user/login/auth.rs",
+      "sha256": "caebfe638f56f07ce6101d9292222d007ee4ee2b52356e618d7aa97fc783e5a7",
+      "authors": [
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/src/user/login/startup.rs",
+      "sha256": "ddfb9459d7e4aca8a0427866e949e29f70832ef167937405b4d67e17cb068442",
+      "authors": [
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/src/user/login/README.md",
+      "sha256": "02e6d238bc548537a1e1b2992551b9c11e373b3fffc1fce8480cb3f970b4a6a0",
+      "authors": [
+        "anreonyr <88045926+anreonyr@users.noreply.github.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/src/user/login/mod.rs",
+      "sha256": "0f0f842bf10086449c28f7fe88cf73c19d025c6d18725ed6ed81cf63e3d3b83a",
+      "authors": [
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/tests/login/Cargo.toml",
+      "sha256": "9138abeb34ebcb65cad37b82436a5232ff09702c5abbe65e42827b0d4c60d33c",
+      "authors": [
+        "Serial Device <anreonyr@gmail.com>",
+        "anreonyr <88045926+anreonyr@users.noreply.github.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/tests/login/lib.rs",
+      "sha256": "414a8987d269c21d4f18cdc3f133c4cb6dcea4e03a8ba52c78db94bba8e53f12",
+      "authors": [
+        "anreonyr <88045926+anreonyr@users.noreply.github.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "crates/composition/src/units/login.rs",
+      "sha256": "7369aeb0c08e1f0b86a4fe699594d171e6eebb4e1771124217a5e2637bc3e0d7",
+      "authors": [
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/build.rs",
+      "sha256": "a3339daca0b76a47fad1b43608c07b0a32bfc458abb32f099e43ee5f5fb263c0",
+      "authors": [
+        "Serial Device <anreonyr@gmail.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": ".cargo/config.toml",
+      "sha256": "f71113e885c1b13673b34567bb4aa97b55091245d207a99908f28eeba34c2bee",
+      "authors": [
+        "Serial Device <anreonyr@gmail.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "AGENTS.md",
+      "sha256": "b5ab92c47ad574e500d2f67757e4b27f9dfe9c1fd9f4a403e8f35e0d6a6ed548",
+      "authors": [
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "rust-toolchain.toml",
+      "sha256": "3d6cdf686f7dc362f1ce8af733e72339e3cb4ba8996dc9e31aef4682998e0fb6",
+      "authors": [
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "Cargo.lock",
+      "sha256": "b1f7ce3bb8af040793b5cb21d764361465f861e4a6c2b89844dc968b88ccc1b3",
+      "authors": [
+        "Serial Device <anreonyr@gmail.com>",
+        "anreonyr <88045926+anreonyr@users.noreply.github.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "crates/composition/src/image_builds.rs",
+      "sha256": "2ee225d1870e3fcd7ce0f97dd3f9ee3bd7b431e496e528f297e78e29e2f33543",
+      "authors": [
+        "Serial Device <anreonyr@gmail.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/src/user/shell/startup.rs",
+      "sha256": "b7de6c9b9c4a10e1f256bc132afcaa880e100bdd694963e84d212ed565906c12",
+      "authors": [
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    },
+    {
+      "source": "programs/tests/login/Cargo.lock",
+      "sha256": "e93695d45eeb381d0f3942e16e8668931f947debec3aa8c59f113accd6dbc3b4",
+      "authors": [
+        "Serial Device <anreonyr@gmail.com>",
+        "anreonyr <88045926+anreonyr@users.noreply.github.com>",
+        "anreonyr <anreonyr@gmail.com>"
+      ]
+    }
+  ],
+  "license": "No source LICENSE or license declaration was found at this commit; no new license is asserted."
+}

@@ -1,0 +1,28 @@
+[package]
+name = "login-server"
+version.workspace = true
+edition.workspace = true
+publish = false
+autobins = false
+
+[[bin]]
+name = "login"
+path = "src/main.rs"
+test = false
+bench = false
+doctest = false
+
+[dependencies]
+account-client = { git = "https://github.com/shuyra-arche/account.git", rev = "7dc701facdbe6368fbc09f7429920ad49dacdfca" }
+argon2 = { version = "=0.5.3", default-features = false, features = ["alloc", "password-hash", "zeroize"] }
+env = { git = "https://github.com/shuyra-arche/env.git", rev = "d3000253cd5d13d466e91fafd4dbb27a5ec5aaae" }
+execution = { git = "https://github.com/shuyra-arche/execution.git", rev = "1b333a28bc4c34beaea3f7986a9bb6e8ab2db414" }
+ipc = { git = "https://github.com/shuyra-arche/ipc.git", rev = "29ad97dc08d9dfc4ea6578b1b77874261229b3b5" }
+mold = { git = "https://github.com/shuyra-arche/mold.git", rev = "f52501f4c91b686eded8b4bcd743b4e96084b7f9" }
+resource = { git = "https://github.com/shuyra-arche/resource.git", rev = "dbc96834f50f094b5c386e54a0a2ae5560dcd7f8" }
+system-api = { git = "https://github.com/shuyra-arche/system.git", rev = "9e5d63ca536a176583cf1b0054b4ecf7ddd88257" }
+system-client = { git = "https://github.com/shuyra-arche/system.git", rev = "5a792ff2d39901a970925b1a6d63206adf6c16d8" }
+system-support = { git = "https://github.com/shuyra-arche/system.git", rev = "5a792ff2d39901a970925b1a6d63206adf6c16d8" }
+terminal-client = { git = "https://github.com/shuyra-arche/terminal.git", rev = "c447c0761835339a39efdf2ddd8101ebf80db15a" }
+wire = { git = "https://github.com/shuyra-arche/wire.git", rev = "0ff77dc4573fa2620d2fe995a18c01949d9c7e57" }
+zeroize = { version = "1", default-features = false, features = ["alloc"] }

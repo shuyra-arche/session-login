@@ -1,0 +1,159 @@
+{
+  "source_repository": "https://github.com/anreonyr/sqware.git",
+  "source_baseline": "94e114614bec53424ac55e640fc80cf19a3e7107",
+  "target_repository": "https://github.com/shuyra-arche/session-login.git",
+  "bootstrap_main_commit": "7d4b1127ecdc85c6ba89412d77f52b25a6365b40",
+  "preservation": "Only the first filtered import receives the bootstrap parent. Subsequent parent topology, trees, author and committer names/emails/dates, and messages are preserved. Mapped hashes identify derived commits, not original Source commit identities.",
+  "commits": [
+    {
+      "source_commit": "1b2814802647d61afb64bce3e93dcfa8af24ef6f",
+      "filtered_commit": "13450db924ce80ca0784f437eef1f0d0ba274f26",
+      "published_commit": "80793f805e28fd3bc9667ced26f44029ef6c374e"
+    },
+    {
+      "source_commit": "22e2bf2f9c563c71c5303d838318406e51f8d92e",
+      "filtered_commit": "816bb06aeea76ba95e2e41793abfd4feb471eb72",
+      "published_commit": "33123b722b653855a4d598a15a476d0c4b21671f"
+    },
+    {
+      "source_commit": "275e0f92f15578cf13910cc27b65c8a316f7c9aa",
+      "filtered_commit": "8b17b316790c58d8a437bd8b54ea6cbcc3aa2265",
+      "published_commit": "bde9059d93a25de28c70ddd4fd07337fd0abef0b"
+    },
+    {
+      "source_commit": "2c17c3877e3f8c67d9db5634d693fa4303d47f8c",
+      "filtered_commit": "b79262090326c59a8be69fcd5d9a3bc4cabda0da",
+      "published_commit": "a0fa9e77b844757455adba16d1acf4e6fc91e3ab"
+    },
+    {
+      "source_commit": "2c7fa231d08ae9a1f2bda268219302f38bd36dc8",
+      "filtered_commit": "9ecbfba5b14f12e5e617a2f842b7787666d9e569",
+      "published_commit": "b3706deec61ab80d1c6dc0cf746da3005e6aeb07"
+    },
+    {
+      "source_commit": "35b3d73e13f695c935665efa6d79b12265af98e7",
+      "filtered_commit": "aa513006628a0ee2b34de0f01ac799e609a76da1",
+      "published_commit": "ca80ba0aae11767bd1cd58a582ac73d486684968"
+    },
+    {
+      "source_commit": "4f11e4436f4b85f267cc83b8224e3c13f789e0ac",
+      "filtered_commit": "a37309cdf960ce2a2c61c6d3aea8b900de94fbee",
+      "published_commit": "9a31520c4d6f23936ad3f3178af50047c7a5491d"
+    },
+    {
+      "source_commit": "50ad14b1123d47900de42ff2bc2d812ec6fbcc36",
+      "filtered_commit": "9b6bc9efc362a5f15350129fce2f7354895f61f7",
+      "published_commit": "0ca66bdd9c658899016f109826d1f5bfdb942ef3"
+    },
+    {
+      "source_commit": "5a07ee7e848f7784f64396f19f20701448bbbd3b",
+      "filtered_commit": "93003ed7bb1b652dfee99a88eeaf9523185bb6e0",
+      "published_commit": "dc01977352e3b03a269179257ecb6c5e4374692c"
+    },
+    {
+      "source_commit": "63feca926dea26418b6271c8ca2376dce53250f2",
+      "filtered_commit": "8f30d708caa97b4e03af91a0b0e35fcc957b4858",
+      "published_commit": "fce680519dcc3f1566d0361ec9f18d14cf4c69a5"
+    },
+    {
+      "source_commit": "6660f3d43a9d78b521542092da9ed891e36b38da",
+      "filtered_commit": "219751c36ad63ddb5fd5441f8a3c6bf3fd18457e",
+      "published_commit": "0c0429cb709f72f691bccbe4eb0ff992ffaf4d69"
+    },
+    {
+      "source_commit": "6768bcfa50ce0c253f831e419ba3f7ebcdcc7431",
+      "filtered_commit": "acdc8cbb022fddca9a6c8926743f82a0c205cacf",
+      "published_commit": "ffa12e46a2b2f3b61c32a35c64f9c8f43a8c496d"
+    },
+    {
+      "source_commit": "70d9de686e3732837b6aba9df8441596f36b38c5",
+      "filtered_commit": "d052e5b514f4dcb8a7ed724aac81495d558033d9",
+      "published_commit": "e722d116d04c913e6e850a09bcc5bda3616b54bb"
+    },
+    {
+      "source_commit": "7274c61b3b87a73e845ac5400c9b3af81e510891",
+      "filtered_commit": "f6c2f7915e40c36fe1d4a4e35eed030a9924e461",
+      "published_commit": "0a4420e7f08cf57e285f262ae7e540e05d3b0149"
+    },
+    {
+      "source_commit": "735260c75f13178ba482a105c909c6dfcdf918ca",
+      "filtered_commit": "8410da0a6c27c22783f791c39f22716eed1398c4",
+      "published_commit": "2f25a8f8293997ba52f95295b3f106773c3425f9"
+    },
+    {
+      "source_commit": "7debb08bd5b13850bb4dd982ff08052967af14d5",
+      "filtered_commit": "e6e82e10d21acf9feb22571e02a845dde8a14b97",
+      "published_commit": "e3abdb3b5f97f8aeb914daae88da1a8e178a5bb5"
+    },
+    {
+      "source_commit": "835b2aad3fb3ac58ebf999f887e1cc5c315f166b",
+      "filtered_commit": "7d68f26cde51338ea8efe5df36bc2c46853c2e60",
+      "published_commit": "d7697f9f0fdcd8f676691869920a8c50b083191a"
+    },
+    {
+      "source_commit": "85804d869d9c89ec6e400c0107e35b47f28debc9",
+      "filtered_commit": "2f8ddada6c6a84a696bd6cf5291e3e714adc73b2",
+      "published_commit": "4e307f980a52736f71e2add439ee628b13938f92"
+    },
+    {
+      "source_commit": "88c217ca5830a3b88dc71395aad63faa82e9a311",
+      "filtered_commit": "b7e42e6a38960812c70708ec937d6eaec5b7adb3",
+      "published_commit": "2c4cbec67f56981ec09e60449f524ea55141ab53"
+    },
+    {
+      "source_commit": "933793e0ef5d5b50f4b576e0d0c894e0f45a0497",
+      "filtered_commit": "956bcf42cf63fc32e93382e8484dac23ade3be78",
+      "published_commit": "90e59a29cb58972e5599f9747a26a890871483bc"
+    },
+    {
+      "source_commit": "983de365e975318d47ee66dfc05cc0ee48078143",
+      "filtered_commit": "52123d085aab3708945764325432b77c969a1306",
+      "published_commit": "d25ea797d75626b2da7c13fc57968202b31b37d6"
+    },
+    {
+      "source_commit": "a213d5872c7f4f89fe84ed9ebf815ab29a9daa21",
+      "filtered_commit": "0eb533276f589d79723bbac8bafaf4811b713fcb",
+      "published_commit": "d8921cf7ba758e61a640c2d75a30f1f06d008d29"
+    },
+    {
+      "source_commit": "a6c6824ef91ac487919d87374a71b62174d465bd",
+      "filtered_commit": "b4b27ef8c7386b89f6324d37e512322408ed0711",
+      "published_commit": "b24f09df607007d37a8e4d68339954133d259afd"
+    },
+    {
+      "source_commit": "ad7dd52fcb04983a99efdb929946b1605f54defc",
+      "filtered_commit": "b3929d87ce2be05d315535ec4e2119695f1bbe65",
+      "published_commit": "6d3aac022d8f6908b6240c4fdd821a3f2e11f00f"
+    },
+    {
+      "source_commit": "c597e1e5931f8f428540233b34f64d9b09438420",
+      "filtered_commit": "90d72b7e8c805f589ff4d26c49fdd20d9cb56239",
+      "published_commit": "3eb3bca67d7be6031ab7054b64a653659c36f960"
+    },
+    {
+      "source_commit": "dd12da150ea583c613769dfda455c1b4afc0d9f4",
+      "filtered_commit": "7a6d79d8a03e5ca7fe7d081a9fa994bb1bb26f4e",
+      "published_commit": "6f23d91bd3b02af36056068beccb5aa28cd5ccf9"
+    },
+    {
+      "source_commit": "e0798398c51cdd35ba8234dd81119c8d1d20466e",
+      "filtered_commit": "9066d8696e91822921573fa1aa56efbe55a8bda4",
+      "published_commit": "c8444498b3a2fd92d9ebbb9f8fadca5a39255792"
+    },
+    {
+      "source_commit": "e6302af2156a6fe3766d3ccc22f080a481948bf3",
+      "filtered_commit": "844b279373a871c581629e9268ba3d21e34c0892",
+      "published_commit": "5149db35aea2200f2131989a0d576c3e3d0a86c3"
+    },
+    {
+      "source_commit": "f669396e3b5ef5994cfe85240bd40efd2b1be338",
+      "filtered_commit": "c7b78804d26e009693046b964353e4ee66127df8",
+      "published_commit": "72e1e49c017495fcb9d2e64c616e6e11781ca8f1"
+    },
+    {
+      "source_commit": "fb4be8eb5cf607fccef3aa4d696f1a24701edb34",
+      "filtered_commit": "e507d824014842538defec35e51a8b6f5b19cb7b",
+      "published_commit": "6c8936d37baf21d2302ffd3f61b73e1223060365"
+    }
+  ]
+}
