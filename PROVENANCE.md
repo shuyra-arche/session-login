@@ -38,15 +38,18 @@ contains only the nonzero mappings; the unrelated zero rows of the full filter
 map were pruned. It records which source commit each filtered commit derives
 from — it is not a claim that those derived hashes will be the remote hashes.
 
-Publication is planned as follows, and is Root's work, not this repository's:
-the remote target is empty, so publishing first creates a minimal `README`
-bootstrap on `main`. The GitHub Git API is then used to upload the 30 filtered
-commits, preserving every tree and the author and committer names, e-mails,
-dates, and messages, with the original subsequent topology intact; only the
-first imported commit is attached to the bootstrap. The resulting remote
-hashes are therefore new objects, and Root evidence will carry an additional
-publication map from filtered commit to published commit. No force push, PR
-merge, or repository settings change is part of this plan.
+The initially empty GitHub repository was initialized with a minimal `README`
+on `main`, commit `7d4b1127ecdc85c6ba89412d77f52b25a6365b40`. The GitHub
+import attaches only the first filtered source commit to this bootstrap. It
+preserves every source tree, subsequent parent relationship, author and
+committer name, e-mail, date, and message. The resulting remote hashes are
+derived objects, not the original source identities.
+
+`provenance/published-source-commits.json` maps all 30 source commits through
+their filtered commits to their GitHub import commits. The later extraction
+and documentation commits are not source commits and are excluded from that
+map, avoiding a circular self-hash. No force push, PR merge, or repository
+settings change is needed for this import.
 
 So: authorship and change content are preserved and traceable through the
 explicit source-to-filtered and filtered-to-published mappings. This history
