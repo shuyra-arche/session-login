@@ -1,14 +1,8 @@
 use env::wire::Span as _;
-use env::{Mark, Permission, PieToken, TaskId, Wait};
+use env::{Permission, PieToken, TaskId, Wait};
 use resource::raw::{Hole, inspect};
 
-const MARK: Mark = Mark::of("login/system-context");
-
-#[derive(Clone, Copy, env::Frame)]
-#[frame(len = 8)]
-struct Context {
-    system: TaskId,
-}
+use super::context::{Context, MARK};
 
 pub(crate) struct Issuer(PieToken);
 

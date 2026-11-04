@@ -1,7 +1,6 @@
 #![no_std]
 #![no_main]
 extern crate alloc;
-extern crate programs;
 mod auth;
 mod startup;
 use account_client::Client;
@@ -13,10 +12,10 @@ use system_client::operator::Face;
 use terminal_client::{Connection, Io, Read, Terminal};
 use zeroize::Zeroizing;
 const WAIT: Wait = Wait::AtMost(5000);
-#[programs::entry]
+#[mold::entry]
 fn main() -> Result<(), env::Reason> {
     run().map_err(|step| {
-        programs::debug::put(step);
+        system_support::debug::put(step);
         1
     })
 }
@@ -72,12 +71,12 @@ fn run_shell(
                     // while its original outcome is unknown.
                     let _ = client.cancel(id, auth::ACCOUNT, WAIT);
                 }
-                programs::debug::put("login: account creation remains unresolved");
+                system_support::debug::put("login: account creation remains unresolved");
                 return Ok(false);
             }
         }
         Err(fail) => {
-            programs::debug::put(&alloc::format!("login: account creation {fail:?}"));
+            system_support::debug::put(&alloc::format!("login: account creation {fail:?}"));
             return Ok(false);
         }
     };
@@ -103,7 +102,7 @@ fn run_shell(
     let foreground = match connection.lend(built.task) {
         Ok(foreground) => foreground,
         Err(_) => {
-            programs::debug::put("login: terminal foreground grant failed");
+            system_support::debug::put("login: terminal foreground grant failed");
             lifecycle.instance(built.task).release(WAIT).map_err(|_| ())?;
             return Ok(false);
         }
@@ -113,7 +112,7 @@ fn run_shell(
             .instance(built.task)
             .embark(WAIT)
             .map_err(|fail| {
-                programs::debug::put(&alloc::format!("login: instance embark {fail:?}"));
+                system_support::debug::put(&alloc::format!("login: instance embark {fail:?}"));
             })?;
         env::unit::join(built.team.into(), Wait::Forever, false).map_err(|_| ())?;
         Ok(())
