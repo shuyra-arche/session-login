@@ -22,6 +22,9 @@ at commit `94e114614bec53424ac55e640fc80cf19a3e7107`.
 - `tests/login` (`login-tests`): the original host suite plus one new startup
   frame golden test. It is an independent workspace, excluded from the root
   workspace.
+- `tests/unit-document` (`login-unit-document-tests`): the three Unit document
+  contract tests and their own lock, in a separate workspace excluded from
+  the production workspace.
 
 ## Build
 
@@ -76,20 +79,24 @@ document. These two legacy dependency forms are therefore not copied into
 The contract suite parses this file as
 `unit_contract::document::Unit<String>`, validates it, and encodes it with
 `unit_contract::record::encode`. Record decoding yields a validated
-`Unit<&str>` whose strings borrow the binary record. The `declaration` tests
+`Unit<&str>` whose strings borrow the binary record. The independent contract tests
 compare all schema fields to the legacy `PROGRAM`, including the explicit
 bootstrap/composition mapping above, and compare every field again after a
 binary roundtrip. They also verify the image against the actual Cargo bin.
 Future full-width `u64` values use quoted decimal or quoted hexadecimal TOML
 strings; labels and signed integers must not stand in for marks.
 
-The declaration contract suite uses the development dependency `unit-contract`,
-an alias for the published Unit package at revision
+The independent contract workspace uses `login-declaration` by path and the
+development dependency `unit-contract`, an alias for the published Unit package at revision
 `ad50b803c3bd5cd2ef90010d80badf23551e88d5`. Its `document` and `record` APIs
 are compared directly with the legacy production Unit types. The production
 `unit` dependency remains at `90396f0fda376e0693fb1b9553aa21864d241057`,
 preserving the existing `PROGRAM` and `BUILD` API for unmigrated scenes.
-The root lock records both published revisions; no local path patch is needed.
+The root lock contains the original production dependency closure; the test
+workspace's lock records both published Unit revisions. Tests use no local
+path patch. Keeping their dependencies outside `login-declaration` also lets
+production Cargo patches select one local Unit package without introducing
+duplicate dependency names in the declaration package.
 
 ## Tests
 
@@ -109,7 +116,7 @@ The new declaration contract suite runs on the host with the published
 development dependency:
 
 ```sh
-cargo test -p login-declaration --target x86_64-unknown-linux-gnu --locked
+cargo test --manifest-path tests/unit-document/Cargo.toml --target x86_64-unknown-linux-gnu --locked
 ```
 
 ## Integration boundary

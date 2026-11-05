@@ -7,15 +7,22 @@ legacy `PROGRAM`, `BUILD`, server code, or original Login tests. Its complete
 field mapping, startup creation, provider closure, and System bootstrap
 boundary are described in `README.md`.
 
-The contract suite uses `unit-contract`, a development alias for the public
-Unit revision `ad50b803c3bd5cd2ef90010d80badf23551e88d5`, for `document`
-and `record`. The production `unit` dependency remains at
-`90396f0fda376e0693fb1b9553aa21864d241057`, and the test reads the original
-`PROGRAM` and `BUILD` through that dependency. Cargo generated the actual
-root lock in the unchanged repository workspace, retaining all 42 prior
-external package version/source/checksum tuples and adding 22 packages for
-the development dependency closure. Both Unit revisions have public Git
-sources in the lock; no local path patch is committed or used.
+The contract suite is an independent workspace at `tests/unit-document`,
+explicitly excluded from the production workspace. It uses `login-declaration`
+by path and `unit-contract`, a development alias for public Unit revision
+`ad50b803c3bd5cd2ef90010d80badf23551e88d5`, for `document` and `record`.
+The production `unit` dependency remains at
+`90396f0fda376e0693fb1b9553aa21864d241057`; `login-declaration` has no
+development dependencies. This keeps Cargo's production Unit patch from
+collapsing two differently named direct dependencies into the same package.
+The moved Rust test file is byte-identical to the original three-test suite,
+and reads the original `PROGRAM` and `BUILD` through the path dependency.
+
+Cargo generated both formal locks. The production root lock retains exactly
+the 42 original external package version/source/checksum tuples and removes
+the 22 packages introduced solely for the contract tests. The independent
+test lock records both public Unit revisions. Neither tracked workspace
+commits a local Unit path patch.
 
 Validation sourced `/workspace/.vanllia-tools/env.sh`, selecting installed
 `nightly-2026-10-09`, and used `/tmp/target-login-unit-public` for artifacts:
@@ -23,16 +30,17 @@ Validation sourced `/workspace/.vanllia-tools/env.sh`, selecting installed
 ```sh
 source /workspace/.vanllia-tools/env.sh
 CARGO_TARGET_DIR=/tmp/target-login-unit-public cargo test \
-  -p login-declaration --target x86_64-unknown-linux-gnu --locked --offline
+  --manifest-path tests/unit-document/Cargo.toml \
+  --target x86_64-unknown-linux-gnu --locked --offline
 cargo tree -p login-declaration --edges normal --locked --offline
 ```
 
 All 3 new tests passed with the generated lock and then with locked offline
 resolution: every-field comparison to the legacy declaration, real Cargo
-bin/build mapping, and complete borrowed binary-record roundtrip. The normal
-dependency tree contains only the original Unit revision; the new revision
-is confined to development dependencies. Scoped
-`rustfmt --edition 2024 --check declaration/tests/unit.rs` and
+bin/build mapping, and complete borrowed binary-record roundtrip. The production
+workspace contains only the original Unit revision; the new revision is
+confined to the independent test workspace. Scoped
+`rustfmt --edition 2024 --check tests/unit-document/unit.rs` and
 `git diff --check` passed. Login's empty authority and resource collections
 remain empty; no declaration mark, Ops, or Grant value was added.
 
@@ -41,21 +49,36 @@ dependencies and its original independent lock:
 
 ```sh
 CARGO_TARGET_DIR=/tmp/target-login-unit-existing cargo test \
-  --manifest-path tests/login/Cargo.toml --target x86_64-unknown-linux-gnu --locked
+  --manifest-path tests/login/Cargo.toml \
+  --target x86_64-unknown-linux-gnu --locked --offline
 ```
 
-Its initial offline attempt required uncached registry packages; the locked
-online run fetched them and passed authentication, Account request framing,
-and the Shell startup-context frame contract.
+Authentication, Account request framing, and the Shell startup-context frame
+contract all passed with the original independent Login test lock unchanged.
 
-The original independent Login reviewer approved the public-dependency change
-and repeated both suites with `--locked --offline`: 3 contract tests and
-3 existing host tests passed. The reviewer also verified the development-only
-alias in Cargo metadata, the original production Unit tree, all 42 preserved
-external lock tuples, unchanged production sources and independent test lock,
-and scoped formatting and diff checks. An additional full-workspace offline
-metadata query was blocked by uncached `libc 0.2.190`; it was outside these
-test checks and does not establish a full-workspace offline cache.
+The production declaration also passed an actual Cargo-native Unit overlay
+check. Its generated overlay lock is outside the repository; comparison
+against a saved copy confirmed the tracked root lock was unchanged:
+
+```sh
+CARGO_RESOLVER_LOCKFILE_PATH=/workspace/vanllia/target/login-unit-overlay/Cargo.lock \
+CARGO_TARGET_DIR=/tmp/target-login-unit-overlay cargo check \
+  -p login-declaration --target x86_64-unknown-linux-gnu --offline \
+  --config 'patch."https://github.com/shuyra-arche/unit.git".unit.path="/workspace/unit"'
+```
+
+This compiled the local Unit package and production declaration successfully,
+without the duplicate dependency-name error. The two test runs above used
+their public dependencies without an overlay.
+
+The original independent Login reviewer approved this workspace separation.
+It repeated both test suites with `--locked --offline` (3 tests each) and
+repeated the native Unit overlay check with `--locked` successfully. It also
+verified that the moved test file, original Login test lock, and restored
+root lock were byte-identical to their respective baselines, that production
+workspace metadata contains only `server` and `declaration`, and that
+`login-declaration` depends only on the original Unit revision. Scoped
+formatting and diff checks passed independently.
 
 No old scene migration, native server rebuild, QEMU run, or runtime acceptance
 is claimed for this change.
