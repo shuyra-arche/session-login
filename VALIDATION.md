@@ -1,5 +1,67 @@
 # Validation
 
+## Unit document validation, 2026-11-05
+
+`server/unit.toml` adds the schema-1 Login document without changing the
+legacy `PROGRAM`, `BUILD`, server code, or original Login tests. Its complete
+field mapping, startup creation, provider closure, and System bootstrap
+boundary are described in `README.md`.
+
+The contract suite uses `unit-contract`, a development alias for the public
+Unit revision `ad50b803c3bd5cd2ef90010d80badf23551e88d5`, for `document`
+and `record`. The production `unit` dependency remains at
+`90396f0fda376e0693fb1b9553aa21864d241057`, and the test reads the original
+`PROGRAM` and `BUILD` through that dependency. Cargo generated the actual
+root lock in the unchanged repository workspace, retaining all 42 prior
+external package version/source/checksum tuples and adding 22 packages for
+the development dependency closure. Both Unit revisions have public Git
+sources in the lock; no local path patch is committed or used.
+
+Validation sourced `/workspace/.vanllia-tools/env.sh`, selecting installed
+`nightly-2026-10-09`, and used `/tmp/target-login-unit-public` for artifacts:
+
+```sh
+source /workspace/.vanllia-tools/env.sh
+CARGO_TARGET_DIR=/tmp/target-login-unit-public cargo test \
+  -p login-declaration --target x86_64-unknown-linux-gnu --locked --offline
+cargo tree -p login-declaration --edges normal --locked --offline
+```
+
+All 3 new tests passed with the generated lock and then with locked offline
+resolution: every-field comparison to the legacy declaration, real Cargo
+bin/build mapping, and complete borrowed binary-record roundtrip. The normal
+dependency tree contains only the original Unit revision; the new revision
+is confined to development dependencies. Scoped
+`rustfmt --edition 2024 --check declaration/tests/unit.rs` and
+`git diff --check` passed. Login's empty authority and resource collections
+remain empty; no declaration mark, Ops, or Grant value was added.
+
+The unchanged Login host suite also passed all 3 tests with the public
+dependencies and its original independent lock:
+
+```sh
+CARGO_TARGET_DIR=/tmp/target-login-unit-existing cargo test \
+  --manifest-path tests/login/Cargo.toml --target x86_64-unknown-linux-gnu --locked
+```
+
+Its initial offline attempt required uncached registry packages; the locked
+online run fetched them and passed authentication, Account request framing,
+and the Shell startup-context frame contract.
+
+The original independent Login reviewer approved the public-dependency change
+and repeated both suites with `--locked --offline`: 3 contract tests and
+3 existing host tests passed. The reviewer also verified the development-only
+alias in Cargo metadata, the original production Unit tree, all 42 preserved
+external lock tuples, unchanged production sources and independent test lock,
+and scoped formatting and diff checks. An additional full-workspace offline
+metadata query was blocked by uncached `libc 0.2.190`; it was outside these
+test checks and does not establish a full-workspace offline cache.
+
+No old scene migration, native server rebuild, QEMU run, or runtime acceptance
+is claimed for this change.
+
+## Extraction baseline
+
 Source baseline: `anreonyr/sqware` at
 `94e114614bec53424ac55e640fc80cf19a3e7107`.
 

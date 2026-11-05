@@ -1,0 +1,29 @@
+schema = 1
+id = "login"
+
+[loader]
+image = "login"
+space = "user"
+args = []
+stack = 0
+
+[operator]
+namespace = []
+
+[identity]
+aliases = []
+grants = []
+
+[control]
+creation = "startup"
+requires = ["terminal", "account"]
+after = ["terminal", "account"]
+ready = "spawn"
+ending = "told"
+construction = []
+retirement = []
+groups = []
+guarded = false
+
+[supply]
+bindings = []
